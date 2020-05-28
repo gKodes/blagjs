@@ -1,0 +1,15 @@
+{
+  "defaults": {
+    "": ""
+  },
+  "contexts": {
+    "": ""
+  },
+  "environments": {
+    "puppeteer": "@blag/exenv-puppeteer"
+  },
+  "browser": {
+    "browserInstallDir": "./chromium",
+    "debug": true
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "@blag/babel",
+  "version": "0.0.0",
+  "description": "Blag shared bable config and custom command and resolver's used for development",
+  "author": "Kamalakar Gadireddy <Kamalakar.Gadireddy@marriott.com>",
+  "homepage": "https://github.com/gKodes/blagjs/blob/master/packages/babel/README.md",
+  "license": "MIT",
+  "main": "babel.config.js",
+  "bin": {
+    "node-babel": "bin/node-babel.js",
+    "babelc": "bin/babel-build.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gKodes/blagjs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/gKodes/blagjs/issues"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "@babel/runtime": "^7.9.6",
+    "babel-jest": "^26.0.1",
+    "babel-plugin-codegen": "^4.0.1",
+    "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.6.5",
+    "is-builtin-module": "^3.0.0",
+    "path-type": "^4.0.0",
+    "read-pkg-up": "^7.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "text",
+      "json",
+      "lcov",
+      "html"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "./jest"
+    },
+    "verbose": true
+  }
+}

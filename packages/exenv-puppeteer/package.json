@@ -1,0 +1,90 @@
+{
+  "name": "@blag/exenv-puppeteer",
+  "version": "0.0.0",
+  "description": "Puppeteer execution environment for blag",
+  "author": "Kamalakar Gadireddy <Kamalakar.Gadireddy@marriott.com>",
+  "homepage": "https://github.com/gKodes/blagjs/blob/master/packages/exenv-puppeteer/README.md",
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "require": "./",
+      "import": "./es/"
+    }
+  },
+  "type": "module",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gKodes/blagjs.git"
+  },
+  "scripts": {
+    "test": "jest --color",
+    "build": "babelc es",
+    "prepare": "cp package.json dist"
+  },
+  "bugs": {
+    "url": "https://github.com/gKodes/blagjs/issues"
+  },
+  "optionalDependencies": {
+    "@blag/puppeteer-chrome": "../puppeteer-chrome"
+  },
+  "peerDependencies": {
+    "@blag/core": "file:../core"
+  },
+  "devDependencies": {
+    "@blag/core": "file:../core",
+    "@blag/babel": "file:../babel",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "node_modules/@blag/babel/node_modules"
+    ],
+    "coverageReporters": [
+      "text",
+      "json",
+      "lcov",
+      "html"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "@blag/babel/jest"
+    },
+    "testEnvironment": "node",
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\$utils/(.*)": "<rootDir>/es/utils/$1",
+      "\\$dialect/(.*)": "<rootDir>/es/dialect/$1",
+      "\\$typeOf/(.*)": "<rootDir>/typeOf/$1"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "content-type": "^1.0.4",
+    "debounce": "^1.2.0",
+    "lru-cache": "^5.1.1",
+    "p-defer": "^3.0.0",
+    "puppeteer-core": "^3.1.0",
+    "shortid": "^2.2.15",
+    "url-parse": "^1.4.7"
+  }
+}

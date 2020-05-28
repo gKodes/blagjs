@@ -1,0 +1,84 @@
+{
+  "name": "@blag/puppeteer-server",
+  "version": "0.0.0",
+  "description": "Add a web-server in front fo the puppeteer-* package to manage the browsers as services",
+  "author": "Kamalakar Gadireddy <Kamalakar.Gadireddy@marriott.com>",
+  "homepage": "https://github.com/gKodes/blagjs/blob/master/packages/puppeteer-server/README.md",
+  "license": "MIT",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "require": "./",
+      "import": "./es/"
+    }
+  },
+  "directories": {
+    "lib": "es",
+    "test": "__tests__"
+  },
+  "files": [
+    "es"
+  ],
+  "bin": {
+    "puppeteer-server": "index.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gKodes/blagjs.git"
+  },
+  "scripts": {
+    "test": "jest --color",
+    "build": "babelc es",
+    "prepare": "cp package.json dist"
+  },
+  "bugs": {
+    "url": "https://github.com/gKodes/blagjs/issues"
+  },
+  "devDependencies": {
+    "@blag/babel": "file:../babel",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "node_modules/@blag/babel/node_modules"
+    ],
+    "coverageReporters": [
+      "text",
+      "json",
+      "lcov",
+      "html"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "@blag/babel/jest"
+    },
+    "testEnvironment": "node",
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\$utils/(.*)": "<rootDir>/es/utils/$1",
+      "\\$dialect/(.*)": "<rootDir>/es/dialect/$1",
+      "\\$typeOf/(.*)": "<rootDir>/typeOf/$1"
+    }
+  },
+  "dependencies": {
+    "cosmiconfig": "^6.0.0",
+    "fastify": "^2.14.1",
+    "fastify-plugin": "^1.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.8.0",
+    "lru-cache": "^5.1.1",
+    "url-parse": "^1.4.7"
+  }
+}

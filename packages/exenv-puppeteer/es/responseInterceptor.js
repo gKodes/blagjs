@@ -13,7 +13,7 @@ export async function responseInterceptor(deferrals, response) {
   }
 
   if (request && request.resourceType() !== STR_DOCUMENT) {
-    await this.find(response.url(), async () => {
+    await this.handle(response.url(), async () => {
       const headers = response.headers();
       return [await parseResponseData(response, { headers }), headers];
     });

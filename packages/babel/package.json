@@ -26,7 +26,7 @@
     "url": "git+https://github.com/gKodes/blagjs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest --color"
   },
   "bugs": {
     "url": "https://github.com/gKodes/blagjs/issues"
@@ -47,7 +47,8 @@
     "core-js": "^3.6.5",
     "is-builtin-module": "^3.0.0",
     "path-type": "^4.0.0",
-    "read-pkg-up": "^7.0.1"
+    "read-pkg-up": "^7.0.1",
+    "upath": "^1.2.0"
   },
   "jest": {
     "testEnvironment": "node",
@@ -68,5 +69,8 @@
       "^.+\\.[t|j]sx?$": "./jest"
     },
     "verbose": true
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
   }
 }

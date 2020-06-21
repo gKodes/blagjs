@@ -8,7 +8,7 @@
   "main": "es/index.js",
   "typings": "index.d.ts",
   "exports": {
-    ".": {
+    "./": {
       "require": "./",
       "import": "./es/"
     }

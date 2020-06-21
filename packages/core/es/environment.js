@@ -81,7 +81,19 @@ export class Environment {
    *
    * @param {import('../index.d.ts').URLMatch|string} url
    */
-  find(url) {
-    return this.handlers.find((handler) => handler.test(url));
+  async handle(url, ...args) {
+    const route = this.handlers.find((handler) => handler.test(url));
+
+    if (!args.length) {
+      return route;
+    }
+
+    if (route && route.handler) {
+      if (args.length === 1 && typeof args[0] === 'function') {
+        args = await args[0](...args.slice(1));
+      }
+
+      return route.handler(...args);
+    }
   }
 }

@@ -3,7 +3,7 @@
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  ~ Copyright 2019 Marriott International Inc
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-const { lookUpPkgSync, readPkgSync } = require('../lib/utils/package');
+const { lookUpPkgSync, readPkgSync } = require('../lib/package');
 const babelrc = require('../babel.config');
 const path = require('path');
 

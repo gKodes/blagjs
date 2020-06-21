@@ -16,6 +16,6 @@ export const targetChangeHandler = debounce(async function(target) {
     // await page.waitFor(() => {});
 
     console.info('--targetChangeHandler--', target.url());
-    this.find(target.url(), page);
+    this.handle(target.url(), page);
   }
 }, 1000);

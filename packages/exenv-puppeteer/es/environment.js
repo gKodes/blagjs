@@ -102,7 +102,7 @@ class PuppeteerEnvironment extends Environment {
 
       return transformResponse(
         await page.goto(url, {
-          waitUntil: ['domcontentloaded', 'networkidle2', 'networkidle0'],
+          waitUntil: ['domcontentloaded', 'load'],
         }),
         config
       );

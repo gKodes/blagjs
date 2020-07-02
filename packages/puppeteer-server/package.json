@@ -31,7 +31,7 @@
     "url": "git+https://github.com/gKodes/blagjs.git"
   },
   "scripts": {
-    "test": "jest --color",
+    "test": "echo 'jest --color'",
     "build": "babelc es",
     "prepare": "cp package.json dist"
   },
@@ -65,12 +65,7 @@
       "^.+\\.[t|j]sx?$": "@blag/babel/jest"
     },
     "testEnvironment": "node",
-    "verbose": true,
-    "moduleNameMapper": {
-      "\\$utils/(.*)": "<rootDir>/es/utils/$1",
-      "\\$dialect/(.*)": "<rootDir>/es/dialect/$1",
-      "\\$typeOf/(.*)": "<rootDir>/typeOf/$1"
-    }
+    "verbose": true
   },
   "dependencies": {
     "cosmiconfig": "^6.0.0",

@@ -56,12 +56,7 @@
       "^.+\\.[t|j]sx?$": "@blag/babel/jest"
     },
     "testEnvironment": "node",
-    "verbose": true,
-    "moduleNameMapper": {
-      "\\$utils/(.*)": "<rootDir>/es/utils/$1",
-      "\\$dialect/(.*)": "<rootDir>/es/dialect/$1",
-      "\\$typeOf/(.*)": "<rootDir>/typeOf/$1"
-    }
+    "verbose": true
   },
   "devDependencies": {
     "@blag/babel": "../babel",

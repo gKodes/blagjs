@@ -5,12 +5,14 @@ const BuiltinModule = require('module');
 const pathExists = require('path-exists');
 // const { getInstalledPathSync, readPkgSync, getMainFileSync } = require('./utils/package');
 const readJSON = require('./utils/readJSON');
+const { lookUpPkgSync } = require('./package/lookUpPkgSync');
 const { resolve } = require('./package');
 
 // Guard against poorly mocked module constructors
 const Module = module.constructor.length > 1 ? module.constructor : BuiltinModule;
 
 const PATH_RESOLVE_DEFAULT = ['.', '/', '\\'];
+const SELF_NODE_MODULES = path.resolve(lookUpPkgSync(__dirname), 'node_modules')
 
 /**
  *
@@ -31,8 +33,10 @@ const _resolveFilename = (() => {
     // If its not the main js and no potions and its not an relative path and if the module was not requested by any @babel modules
     if (!(isMain || options || PATH_RESOLVE_DEFAULT.includes(request[0]) || parentModule.id.includes('@babel'))) {
       // TODO: Find a way to pass in options
+
       const resolvedPath = resolve(request, {
-        paths: [...parentModule.paths, '/Users/kgadi366/Desktop/kamal/dev/blagjs/packages/babel/node_modules'],
+        // SELF_NODE_MODULES is the last path where things are search for
+        paths: [...parentModule.paths, SELF_NODE_MODULES],
       });
 
       if (resolvedPath) {

@@ -5,7 +5,7 @@
   "author": "Kamalakar Gadireddy <Kamalakar.Gadireddy@marriott.com>",
   "homepage": "https://github.com/gKodes/blagjs/blob/master/packages/babel/README.md",
   "license": "MIT",
-  "main": "babel.config.js",
+  "main": "./jest/resolver",
   "bin": {
     "node-babel": "bin/node-babel.js",
     "babelc": "bin/babel-build.js"

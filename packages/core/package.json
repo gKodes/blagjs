@@ -7,13 +7,13 @@
   "license": "MIT",
   "main": "es/index.js",
   "typings": "index.d.ts",
+  "resolveUsing": "import",
   "exports": {
     "./": {
       "require": "./",
       "import": "./es/"
     }
   },
-  "type": "module",
   "directories": {
     "lib": "es",
     "test": "__tests__"
@@ -29,7 +29,7 @@
   "scripts": {
     "test": "jest --color",
     "build": "babelc es",
-    "prepare": "cp package.json index.d.ts dist"
+    "prepack": "cp package.json index.d.ts dist"
   },
   "bugs": {
     "url": "https://github.com/gKodes/blagjs/issues"
@@ -56,10 +56,11 @@
       "^.+\\.[t|j]sx?$": "@blag/babel/jest"
     },
     "testEnvironment": "node",
-    "verbose": true
+    "verbose": true,
+    "resolver": "@blag/babel"
   },
   "devDependencies": {
-    "@blag/babel": "../babel",
+    "@blag/babel": "file:../babel",
     "jest": "^26.0.1",
     "jest-cli": "^26.0.1"
   },

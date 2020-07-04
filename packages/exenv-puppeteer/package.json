@@ -6,13 +6,13 @@
   "homepage": "https://github.com/gKodes/blagjs/blob/master/packages/exenv-puppeteer/README.md",
   "license": "MIT",
   "main": "index.js",
+  "resolveUsing": "import",
   "exports": {
     ".": {
       "require": "./",
       "import": "./es/"
     }
   },
-  "type": "module",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -31,20 +31,20 @@
   "scripts": {
     "test": "jest --color",
     "build": "babelc es",
-    "prepare": "cp package.json dist"
+    "prepack": "cp package.json dist"
   },
   "bugs": {
     "url": "https://github.com/gKodes/blagjs/issues"
   },
   "optionalDependencies": {
-    "@blag/puppeteer-chrome": "../puppeteer-chrome"
+    "@blag/puppeteer-chrome": "file:../puppeteer-chrome"
   },
   "peerDependencies": {
     "@blag/core": "file:../core"
   },
   "devDependencies": {
-    "@blag/core": "file:../core",
     "@blag/babel": "file:../babel",
+    "@blag/core": "file:../core",
     "jest": "^26.0.1",
     "jest-cli": "^26.0.1"
   },

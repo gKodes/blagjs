@@ -6,6 +6,7 @@
   "homepage": "https://github.com/gKodes/blagjs/blob/master/packages/puppeteer-server/README.md",
   "license": "MIT",
   "main": "index.js",
+  "resolveUsing": "import",
   "exports": {
     ".": {
       "require": "./",
@@ -33,7 +34,7 @@
   "scripts": {
     "test": "echo 'jest --color'",
     "build": "babelc es",
-    "prepare": "cp package.json dist"
+    "prepack": "cp package.json dist"
   },
   "bugs": {
     "url": "https://github.com/gKodes/blagjs/issues"

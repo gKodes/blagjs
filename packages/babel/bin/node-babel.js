@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- ~ Copyright 2019 Marriott International Inc
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-const { lookUpPkgSync, readPkgSync } = require('../lib/package');
-const babelrc = require('../babel.config');
 const path = require('path');
+const { lookUpPkgSync, readPkgSync } = require('../lib/package');
+const { isES6Package } = require('../lib/package/isES6Package');
+const babelrc = require('../babel.config');
 
 // NOTE: Its true by default and should be true for webpack builds, in dev we need it to be false
 babelrc.presets[0][1].modules = 'auto';
@@ -32,10 +30,9 @@ function isNotES6Package(requestedPath) {
     const pkgPath = lookUpPkgSync(requestedPath);
 
     if ( pkgPath ) {
-      const packageJSON = readPkgSync(pkgPath);
       // If package.module or pacjage.type is defined then its an ES6 Module and cannot be ignored
-      // console.info('--packageJSON.name--', typeof(packageJSON.module) === 'undefined' && packageJSON.type !== 'module', pkgPath);
-      return es6Packages[pkgPath] = (typeof(packageJSON.module) === 'undefined' && packageJSON.type !== 'module');
+      // console.info('--packageJSON.name--', pkgPath, isES6Package(pkgPath));
+      return es6Packages[pkgPath] = !isES6Package(pkgPath);
     }
   }
 

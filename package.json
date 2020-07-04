@@ -1,7 +1,14 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "clean": "rimraf node_modules packages/*/node_modules",
+    "install": "lerna bootstrap && lerna exec -- yarn"
+  },
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2"
   }
 }

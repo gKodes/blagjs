@@ -19,6 +19,8 @@ function resolve(requested, options = {}) {
     return requested;
   }
 
+  // console.info(requested, target);
+
   const cwd = path.dirname(paths[0]);
   const [, name, expansion = ''] = requested.match(EXPORTS_PATTERN);
 

@@ -5,7 +5,7 @@
   "author": "Kamalakar Gadireddy <Kamalakar.Gadireddy@marriott.com>",
   "homepage": "https://github.com/gKodes/blagjs#readme",
   "license": "MIT",
-  "type": "module",
+  "resolveUsing": "import",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -28,20 +28,20 @@
     "test": "jest --color",
     "run:dev": "node-babel bin/blag.js",
     "build": "babelc es",
-    "prepare": "cp package.json dist"
+    "prepack": "cp package.json dist"
   },
   "bugs": {
     "url": "https://github.com/gKodes/blagjs/issues"
   },
   "devDependencies": {
-    "jest": "^26.0.1",
-    "jest-cli": "^26.0.1",
     "@blag/babel": "file:../babel",
     "@blag/exenv-puppeteer": "file:../exenv-puppeteer",
-    "@blag/puppeteer-chrome": "file:../puppeteer-chrome"
+    "@blag/puppeteer-chrome": "file:../puppeteer-chrome",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1"
   },
   "dependencies": {
-    "@blag/core": "../core",
+    "@blag/core": "file:../core",
     "cosmiconfig": "^6.0.0",
     "exit-hook": "^2.2.0",
     "minimist": "^1.2.5",

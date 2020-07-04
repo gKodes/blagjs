@@ -1,6 +1,7 @@
 {
   "packages": ["packages/*"],
   "version": "0.0.0",
+  "npmClient": "yarn",
   "command": {
     "publish": {
       "registry": "http://localhost:4873/"

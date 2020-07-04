@@ -5,6 +5,7 @@
   "author": "Kamalakar Gadireddy <Kamalakar.Gadireddy@marriott.com>",
   "homepage": "https://github.com/gKodes/blagjs#readme",
   "license": "ISC",
+  "resolveUsing": "import",
   "main": "lib/puppeteer-utils.js",
   "directories": {
     "lib": "lib",
@@ -20,8 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/gKodes/blagjs.git"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "bugs": {
     "url": "https://github.com/gKodes/blagjs/issues"
   }

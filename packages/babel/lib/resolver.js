@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const upath = require('upath');
 const BuiltinModule = require('module');
-const pathExists = require('path-exists');
 // const { getInstalledPathSync, readPkgSync, getMainFileSync } = require('./utils/package');
 const readJSON = require('./utils/readJSON');
 const { lookUpPkgSync } = require('./package/lookUpPkgSync');
+const { isES6Package } = require('./package/isES6Package');
 const { resolve } = require('./package');
 
 // Guard against poorly mocked module constructors
@@ -31,10 +31,12 @@ const _resolveFilename = (() => {
     const absolutePath = path.resolve(path.basename(parentModule.filename), request);
 
     // If its not the main js and no potions and its not an relative path and if the module was not requested by any @babel modules
-    if (!(isMain || options || PATH_RESOLVE_DEFAULT.includes(request[0]) || parentModule.id.includes('@babel'))) {
+    if ( !(isMain || options || PATH_RESOLVE_DEFAULT.includes(request[0])) ) {
       // TODO: Find a way to pass in options
 
+      // console.info(parentModule.id, isES6Package(parentModule.id));
       const resolvedPath = resolve(request, {
+        target: isES6Package(parentModule.id)? 'import': 'require',
         // SELF_NODE_MODULES is the last path where things are search for
         paths: [...parentModule.paths, SELF_NODE_MODULES],
       });

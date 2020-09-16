@@ -1,0 +1,45 @@
+{
+  "name": "@blinds/connector-neo4j",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Kamalakar Gadireddy",
+  "homepage": "",
+  "license": "ISC",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./index.js"
+    },
+    "./": {
+      "import": "./es",
+      "require": "./"
+    }
+  },
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "scripts": {
+    "build": "is-ci build:ci build:local",
+    "build:ci": "babelc es && cpy --parents ./es/ ./dist/es/ && cpy ./package.json ./dist/",
+    "build:local": "babelc es",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "dependencies": {
+    "@blinds/core": "^0.0.0",
+    "json5": "^2.1.3",
+    "neo4j-driver": "^4.1.1"
+  }
+}

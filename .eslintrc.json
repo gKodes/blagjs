@@ -1,0 +1,48 @@
+{
+  "extends": [
+    "prettier",
+    "plugin:sonarjs/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": ["prettier", "jest", "import"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": "off",
+    "no-tabs": 1,
+    "func-names": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never",
+        "imports": "always-multiline",
+        "objects": "always-multiline"
+      }
+    ],
+    "prettier/prettier": "error",
+    "no-shadow": [
+      2,
+      {
+        "hoist": "all",
+        "allow": ["resolve", "reject", "done", "next", "err", "error"]
+      }
+    ]
+  },
+  "settings": {
+    "import/internal-regex": "^@blinds/",
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "packages"],
+        "paths": ["es"]
+      },
+      "resolvejs": {}
+    }
+  }
+}

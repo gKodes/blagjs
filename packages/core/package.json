@@ -1,0 +1,43 @@
+{
+  "name": "@blinds/core",
+  "version": "0.0.0",
+  "description": "Blind core module used for Object Based OGM ORM for Node.JS",
+  "author": "Kamalakar Gadireddy",
+  "homepage": "https://github.com/gKodes/blagjs",
+  "license": "ISC",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [ "OGM", "ORM", "object relational mapper", "nodejs", "neo4j", "es6", "babel", "class" ],
+  "exports": {
+    "./": {
+      "import": "./es",
+      "require": "./"
+    }
+  },
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "scripts": {
+    "build": "is-ci build:ci build:local",
+    "build:ci": "babelc es && cpy --parents ./es/ ./dist/es/ && cpy ./package.json ./dist/",
+    "build:local": "babelc es",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "dependencies": {
+    "eventemitter2": "^6.4.3",
+    "nanoid": "^3.1.12",
+    "pluralize": "^8.0.0",
+    "prop-types": "^15.7.2"
+  }
+}

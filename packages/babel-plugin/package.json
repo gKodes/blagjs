@@ -1,0 +1,40 @@
+{
+  "name": "@blinds/babel-plugin",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Kamalakar Gadireddy <kgadireddy@bills.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/babel-plugin.js",
+  "module": "dist/babel-plugin.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "scripts": {
+    "build": "is-ci build:ci build:local",
+    "build:ci": "babelc es && cpy --parents ./es/ ./dist/es/ && cpy ./package.json ./dist/",
+    "build:local": "babelc es",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.5"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.11.5"
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.10.4",
+    "@babel/types": "^7.11.5"
+  }
+}

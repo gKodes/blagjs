@@ -1,0 +1,33 @@
+{
+  "name": "@blinds/examples",
+  "version": "0.0.0",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "Kamalakar Gadireddy <kgadireddy@bills.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/examples.js",
+  "module": "dist/examples.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "BABEL_ENV=example babelc es",
+    "dev": "NODE_ENV=development BABEL_ENV=example node-babel ./es/models/",
+    "dev:con": "NODE_ENV=development BABEL_ENV=example node-babel ./es/neo4j",
+    "node-babel": "NODE_ENV=development BABEL_ENV=example node-babel",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "dependencies": {
+    "@blinds/connector-neo4j": "^0.0.0",
+    "@blinds/core": "^0.0.0",
+    "prop-types": "^15.7.2"
+  }
+}

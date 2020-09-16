@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "@blinds/*": ["./packages/*/es"]
+    }
+  }
+}
